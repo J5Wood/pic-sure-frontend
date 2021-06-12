@@ -3,7 +3,7 @@
 Pic-Sure is an image sharing single page application.
 It is built with a Rails backend and a React frontend.
 
-[Backend](https://github.com/J5Wood/pic-sure-backend)
+[Backend Repo](https://github.com/J5Wood/pic-sure-backend)
 
 ## Installation
 

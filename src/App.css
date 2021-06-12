@@ -1,0 +1,101 @@
+.App {
+  text-align: center;
+}
+
+body {background-color: #e4e9df;}
+
+
+.navbar {
+  background-color: #a9bea6;
+}
+
+#login-button {
+  background-color: #546329;
+}
+
+.form-button {
+  background-color: #546329;
+  color: white;
+}
+
+.form-button:hover {
+  background-color: #0b0f08;
+  color: #546329;
+}
+
+.login-signup-form{
+  margin: 28px;
+}
+
+#user-badge {
+  color: #0b0f08;
+  background-color: #58af9e;
+  min-width: min-content;
+  display:inline-block;
+  padding: 10px 15px 10px 15px;
+  text-align:center;
+  border-radius:50%;
+}
+
+#file-input {
+  background-color: #a9bea6;
+}
+
+.danger-button {
+  background-color: #ed5255;
+}
+
+.danger-button:hover {
+  color: #ed5255;
+  background-color: #0b0f08;
+}
+
+.back-button {
+  color: white;
+  background-color: #546329;
+  max-width: 100px;
+  margin: auto;
+}
+.back-button:hover {
+  color: #546329;
+  background-color: #0b0f08;
+  max-width: 100px;
+  margin: auto;
+}
+
+.post-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.post-content {
+  color: aliceblue;
+}
+
+.margin-right {
+  margin-right: 8px;
+}
+
+.post-card {
+  float: left;
+  margin: auto;
+  min-width: 350px;
+  max-width: 350px;
+  min-height: min-content;
+  max-height: min-content;
+  overflow-wrap: break-word;
+  margin: 20px;
+  background-color: #0b0f08;
+  border: #546329;
+  border-width: 4px;
+  border-style: solid;
+}
+
+.image {
+  margin-top: 7px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 320px;
+  height: 320px;
+}

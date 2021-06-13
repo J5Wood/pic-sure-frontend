@@ -3,8 +3,14 @@ import { Redirect } from 'react-router';
 import { connect } from 'react-redux'
 import SignupForm from './SignupForm'
 import LoginForm from './LoginForm'
+import { fetchLoggedInUser } from '../actions/UserActions'
 
 class Welcome extends Component {
+
+    
+    componentDidMount() {
+    this.props.fetchLoggedInUser()
+    }
 
     renderLoginForm = () => {
         return (
@@ -40,4 +46,10 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps)(Welcome);
+const mapDispatchToProps = dispatch => {
+    return {
+      fetchLoggedInUser: () => dispatch(fetchLoggedInUser())
+    }
+  }
+
+export default connect(mapStateToProps, mapDispatchToProps)(Welcome);

@@ -6,6 +6,7 @@ import Welcome from './containers/Welcome'
 import PostContainer from './containers/PostContainer'
 import NavHeader from './containers/NavHeader'
 import ErrorHandler from './ErrorHandler'
+import RedirectHome from './components/RedirectHome'
 
 class App extends Component {
 
@@ -18,6 +19,7 @@ class App extends Component {
           <Route exact path="/home" component={Main} />
           <Route exact path="/posts/:post_id" component={PostContainer} />
           <Route exact path="/" component={Welcome} />
+          <Route exact path="*" component={RedirectHome}/>
         </Router>
       </div>
     );

@@ -99,3 +99,7 @@ body {background-color: #e4e9df;}
   width: 320px;
   height: 320px;
 }
+
+.likes:hover {
+  cursor: pointer;
+}

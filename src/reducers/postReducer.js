@@ -52,13 +52,12 @@ export default function postReducer(
                 }
 
             case 'UPDATE_LIKES':
-                debugger
-                // const index = state.posts.findIndex(post => post.id === action.payload.id) 
+                const index = state.posts.findIndex(post => post.id === action.payload.id) 
                 return {
                     ...state, posts: [
-                        // ...state.posts.slice(0, index), action.payload, ...state.posts.slice(index + 1)
-                        ...state.posts.filter(post => post.id !== action.payload.id), action.payload
+                        ...state.posts.slice(0, index), action.payload, ...state.posts.slice(index + 1)
                     ],
+                    post: state.post && state.post.id === action.payload.id ? action.payload : state.post,
                     loading: false
                 }
 

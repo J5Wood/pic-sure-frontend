@@ -45,6 +45,22 @@ export default function postReducer(
                 loading: false
             }
 
+            case 'BEGIN_UPDATING_LIKES':
+                return {
+                    ...state,
+                    loading: true
+                }
+
+            case 'UPDATE_LIKES':
+                debugger
+                const index = state.posts.findIndex(post => post.id === action.payload.id) 
+                return {
+                    ...state, posts: [
+                        ...state.posts.slice(0, index), action.payload, ...state.posts.slice(index + 1)
+                    ],
+                    loading: false
+                }
+
         default:
             return state
     }

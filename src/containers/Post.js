@@ -6,8 +6,8 @@ import {updateLike } from '../actions/PostActions'
 
 class Post extends Component {
 
-    handleLike =  (post) => {
-        this.props.updateLike(post, this.props.user)
+    handleLike =  (postId) => {
+        this.props.updateLike(postId, this.props.user)
     }
 
     render() {
@@ -28,7 +28,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        updateLike: (post, user) => dispatch(updateLike(post, user))
+        updateLike: (postId, user) => dispatch(updateLike(postId, user))
     }
 }
 

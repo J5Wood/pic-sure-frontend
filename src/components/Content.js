@@ -2,7 +2,7 @@ import React from 'react'
 
 const renderHeart = props => {
     return (
-        <div onClick={() => props.handleLike(props.post)}>
+        <div onClick={() => props.handleLike(props.post.id)}>
             {String.fromCharCode(9829)} - 3 Likes
             <br/>
             {String.fromCharCode(9825)} - 4 Likes

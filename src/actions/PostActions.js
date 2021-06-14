@@ -41,6 +41,20 @@ export function fetchPost(id) {
     }
 }
 
-export function updateLike(post, user) {
-    debugger
+export function updateLike(id, user) {
+    const postObj = {id, user}
+    const configObj = {
+        method: 'PATCH',
+        headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json"
+        },
+        body: JSON.stringify(postObj)
+    }
+    return dispatch => {
+        dispatch({ type: "BEGIN_UPDATING_LIKES"})
+        fetch(`http://localhost:3001/posts/${id}`, configObj)
+        .then(resp => resp.json())
+        .then(jsonResp => dispatch({type: "UPDATE_LIKES", payload: jsonResp.data}))
+    }
 }

@@ -40,3 +40,7 @@ export function fetchPost(id) {
         .catch(error => dispatch({ type: "ERROR", payload: error.message}))
     }
 }
+
+export function updateLike(post, user) {
+    debugger
+}

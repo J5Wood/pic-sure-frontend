@@ -2,16 +2,13 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { fetchPosts } from '../actions/PostActions'
 import Post from './Post'
-import { NavLink } from 'react-router-dom'
 
 class PostsContainer extends Component {
 
     renderPosts = () => {
             const posts = this.props.posts.map(post => {
                 return (
-                    <NavLink key={post.id} to={"/posts/" + post.id} exact>
-                        <Post post={post}/>
-                    </NavLink>
+                        <Post key={post.id} post={post}/>
                 )
             })
             return posts.reverse()

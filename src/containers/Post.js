@@ -3,6 +3,7 @@ import { Photo } from '../components/Photo'
 import { Content } from '../components/Content'
 import { connect } from 'react-redux'
 import {updateLike } from '../actions/PostActions'
+import { NavLink } from 'react-router-dom'
 
 class Post extends Component {
 
@@ -13,8 +14,10 @@ class Post extends Component {
     render() {
         return (
                 <div className="post-card">
-                    <Photo src={this.props.post.attributes.photo_url}/>
-                    <Content handleLike={this.handleLike} post={this.props.post} />
+                    <NavLink to={"/posts/" + this.props.post.id} exact>
+                        <Photo src={this.props.post.attributes.photo_url}/>
+                    </NavLink>
+                    <Content handleLike={this.handleLike} post={this.props.post} user={this.props.user} />
                 </div>
         )
     }

@@ -56,5 +56,6 @@ export function updateLike(id, user) {
         fetch(`http://localhost:3001/posts/${id}`, configObj)
         .then(resp => resp.json())
         .then(jsonResp => dispatch({type: "UPDATE_LIKES", payload: jsonResp.data}))
+        .catch(error => dispatch({ type: "ERROR", payload: error.message}))
     }
 }

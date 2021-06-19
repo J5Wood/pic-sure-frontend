@@ -24,7 +24,7 @@ class PostContainer extends Component {
     }
 
     render() {
-        if (!this.props.currentUser) {
+        if (!this.props.user) {
             return <Redirect to="/"/>
         }
         return (
@@ -44,7 +44,7 @@ class PostContainer extends Component {
 const mapStateToProps = state => {
     return {
         post: state.postReducer.post,
-        currentUser: state.userReducer.user
+        user: state.userReducer.user
     }
 }
 

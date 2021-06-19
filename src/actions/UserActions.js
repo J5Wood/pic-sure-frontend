@@ -66,16 +66,20 @@ export function fetchLoggedInUser() {
             }
             return fetch("http://localhost:3001/auto-login", configObj)
             .then(resp => resp.json())
-            .then(jsonResp => dispatch({ type: 'LOGIN_USER', payload: jsonResp.data.attributes}))
+            .then(jsonResp => {
+                if (!!jsonResp.data) {
+                    dispatch({ type: 'LOGIN_USER', payload: jsonResp.data.attributes})
+                }
+            })
             .catch(error => dispatch({ type: "ERROR", payload: error.message}))
         }
     }
 }
 
-export function logout(user) {
+export function logout() {
     localStorage.setItem("token", null)
     return dispatch => {
-        dispatch({type: 'LOGOUT', payload: user})
+        dispatch({type: 'LOGOUT'})
     }
 }
 

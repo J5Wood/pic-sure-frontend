@@ -1,6 +1,7 @@
 export default function userReducer(
     state = {
         user: null,
+        userId: null,
         loading: false
     }, action
 ) {
@@ -15,6 +16,7 @@ export default function userReducer(
             return {
                 ...state,
                 user: action.payload.username,
+                userId: action.payload.user_id,
                 loading: false
             }
 

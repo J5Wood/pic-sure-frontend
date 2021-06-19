@@ -29,7 +29,7 @@ class Welcome extends Component {
     }
 
     render() {
-        if (!!this.props.currentUser) {
+        if (!!this.props.user) {
             return <Redirect to="/home"/>
         }
         return (
@@ -42,7 +42,7 @@ class Welcome extends Component {
 
 const mapStateToProps = state => {
     return {
-      currentUser: state.userReducer.user
+      user: state.userReducer.user
     }
 }
 

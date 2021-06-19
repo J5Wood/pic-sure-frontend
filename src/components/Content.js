@@ -1,7 +1,7 @@
 import React from 'react'
 
 const renderHeart = props => {
-    if (props.post.attributes.likes.includes(props.user)) {
+    if (props.post.attributes.likes.includes(props.userId)) {
         return (
             <b>
                 {String.fromCharCode(9829)} - {props.post.attributes.likes.length} Likes

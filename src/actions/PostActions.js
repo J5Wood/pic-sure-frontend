@@ -8,11 +8,11 @@ export function fetchPosts() {
     }
 }
 
-export function addNewPost(formState, user) {
+export function addNewPost(formState, userId) {
     const formData = new FormData();
     formData.append('content', formState.content)
     formData.append('photo', formState.photo)
-    formData.append('user', user)
+    formData.append('userId', userId)
     let configObj = {
         method: 'POST',
         body: formData
@@ -41,8 +41,8 @@ export function fetchPost(id) {
     }
 }
 
-export function updateLike(id, user) {
-    const postObj = {id, user}
+export function updateLike(id, userId) {
+    const postObj = {id, userId}
     const configObj = {
         method: 'PATCH',
         headers: {

@@ -30,7 +30,7 @@ class Main extends Component {
     }
 
   render() {
-    if (!this.props.currentUser) {
+    if (!this.props.user) {
         return <Redirect to="/"/>
     }
     return (
@@ -46,7 +46,7 @@ class Main extends Component {
 }
 const mapStateToProps = state => {
     return {
-      currentUser: state.userReducer.user
+      user: state.userReducer.user
     }
   }
   

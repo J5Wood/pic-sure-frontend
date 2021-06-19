@@ -29,7 +29,7 @@ class CommentsContainer extends Component {
                 <br/>
                 {this.renderComments()}
 
-                <CommentForm user={this.props.currentUser} postId={this.props.postId}/>
+                <CommentForm user={this.props.user} userId={this.props.userId} postId={this.props.postId}/>
             </div>
         )
     }
@@ -37,7 +37,8 @@ class CommentsContainer extends Component {
 const mapStateToProps = state => {
     return {
         comments: state.commentReducer.comments,
-        currentUser: state.userReducer.user
+        user: state.userReducer.user,
+        userId: state.userReducer.userId
     }
 }
 

@@ -27,7 +27,7 @@ class PostForm extends Component {
         if (this.state.content === '' || this.state.photo === null) {
             this.props.error("Must provide a file and a title")
         } else {
-            this.props.addNewPost(this.state, this.props.user)
+            this.props.addNewPost(this.state, this.props.userId)
             this.setState({
                 content: '',
                 photo: null
@@ -56,7 +56,7 @@ class PostForm extends Component {
 
 const mapStateToProps = state => {
     return {
-        user: state.userReducer.user
+        userId: state.userReducer.userId
     }
 }
 const mapDispatchToProps = dispatch => {

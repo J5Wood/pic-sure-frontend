@@ -19,7 +19,7 @@ class CommentForm extends Component {
         const comment = {
             ...this.state,
             post_id: this.props.postId,
-            user: this.props.user
+            userId: this.props.userId
         }
         this.props.addNewComment(comment)
         this.setState({

@@ -7,15 +7,13 @@ import { logout } from '../actions/UserActions'
 
 class NavHeader extends Component {
 
-    logout = () => {
-        this.props.logout(this.props.user)
-    }
+    logout = () => this.props.logout()
 
     renderDisplay = () => {
-        if (!!this.props.currentUser) {
+        if (!!this.props.user) {
             return (
                 <div className="d-flex flex-fill justify-content-between">
-                    <Badge id="user-badge" className="d-inline-flex align-items-center" pill>{this.props.currentUser}</Badge>
+                    <Badge id="user-badge" className="d-inline-flex align-items-center" pill>{this.props.user}</Badge>
                     <Navbar.Brand href="/">PIC-SURE</Navbar.Brand>
                     <Button className="danger-button" onClick={this.logout}>LOGOUT</Button>
                 </div>
@@ -42,13 +40,13 @@ class NavHeader extends Component {
 
 const mapStateToProps = state => {
     return {
-        currentUser: state.userReducer.user
+        user: state.userReducer.user
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
-        logout: user => dispatch(logout(user))
+        logout: () => dispatch(logout())
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(NavHeader)

@@ -45,21 +45,36 @@ export default function postReducer(
                 loading: false
             }
 
-            case 'BEGIN_UPDATING_LIKES':
-                return {
-                    ...state,
-                    loading: true
-                }
+        case 'BEGIN_DELETING_POST':
+            return {
+                ...state,
+                loading: true
+            }
 
-            case 'UPDATE_LIKES':
-                const index = state.posts.findIndex(post => post.id === action.payload.id) 
-                return {
-                    ...state, posts: [
-                        ...state.posts.slice(0, index), action.payload, ...state.posts.slice(index + 1)
-                    ],
-                    post: state.post && state.post.id === action.payload.id ? action.payload : state.post,
-                    loading: false
-                }
+        case 'DELETE_POST':
+            return {
+                ...state, posts: 
+                    state.posts.filter(post => post.id !== action.payload.postId)
+                ,
+                post: state.post && state.post.id === action.payload.postId ? [] : state.post,
+                loading: false
+            }
+
+        case 'BEGIN_UPDATING_LIKES':
+            return {
+                ...state,
+                loading: true
+            }
+
+        case 'UPDATE_LIKES':
+            const index = state.posts.findIndex(post => post.id === action.payload.id) 
+            return {
+                ...state, posts: [
+                    ...state.posts.slice(0, index), action.payload, ...state.posts.slice(index + 1)
+                ],
+                post: state.post && state.post.id === action.payload.id ? action.payload : state.post,
+                loading: false
+            }
 
         default:
             return state

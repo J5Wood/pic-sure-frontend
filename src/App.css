@@ -103,3 +103,11 @@ body {background-color: #e4e9df;}
 .likes:hover {
   cursor: pointer;
 }
+
+.delete-post-button {
+float: right;
+}
+
+.delete-confirmation {
+  background-color: #ed5255;
+}

@@ -41,6 +41,26 @@ export function fetchPost(id) {
     }
 }
 
+export function deletePost(postObj) {
+    const configObj = {
+        method: 'DELETE',
+        headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json"
+        },
+        body: JSON.stringify(postObj)
+    }
+    return dispatch => {
+        dispatch({type: "BEGIN_DELETING_POST"})
+        fetch(`http://localhost:3001/posts/${postObj.id}`, configObj)
+        .then(resp => resp.json())
+        .then(jsonResp => {
+            dispatch({type: 'DELETE_POST', payload: jsonResp})
+        })
+        .catch(error => dispatch({ type: "ERROR", payload: error.message}))
+    }
+}
+
 export function updateLike(id, userId) {
     const postObj = {id, userId}
     const configObj = {

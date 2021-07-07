@@ -1,16 +1,11 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { fetchPost } from '../actions/PostActions'
 import Post from './Post'
 import CommentsContainer from './CommentsContainer'
 import { Redirect } from 'react-router';
 import { NavLink } from 'react-router-dom'
 
 class PostContainer extends Component {
-
-    componentDidMount() {
-        this.props.fetchPost(this.props.match.url.split("/")[2])
-    }
 
     renderPost = () => {
         if (!!this.props.post.id && this.props.post.id === this.props.match.url.split("/")[2]) {
@@ -41,17 +36,11 @@ class PostContainer extends Component {
     }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state, ownProps) => {
     return {
-        post: state.postReducer.post,
-        user: state.userReducer.user
+        user: state.userReducer.user,
+        post: state.postReducer.posts.filter(post => post.id === ownProps.match.url.split("/")[2])[0]
     }
 }
 
-const mapDispatchToProps = dispatch => {
-    return {
-        fetchPost: id => dispatch(fetchPost(id))
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(PostContainer)
+export default connect(mapStateToProps)(PostContainer)

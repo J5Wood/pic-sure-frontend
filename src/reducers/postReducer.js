@@ -1,7 +1,6 @@
 export default function postReducer(
     state = {
         posts: [],
-        post: [],
         loading: false
     }, action
 ) {
@@ -15,19 +14,6 @@ export default function postReducer(
             return {
                 ...state, 
                 posts: action.payload,
-                loading: false
-            }
-
-        case 'BEGIN_FETCHING_POST':
-            return {
-                ...state,
-                loading: true
-            }
-
-        case 'DISPLAY_POST':
-            return {
-                ...state,
-                post: action.payload,
                 loading: false
             }
 
@@ -56,7 +42,6 @@ export default function postReducer(
                 ...state, posts: 
                     state.posts.filter(post => post.id !== action.payload.postId)
                 ,
-                post: state.post && state.post.id === action.payload.postId ? [] : state.post,
                 loading: false
             }
 
@@ -72,7 +57,6 @@ export default function postReducer(
                 ...state, posts: [
                     ...state.posts.slice(0, index), action.payload, ...state.posts.slice(index + 1)
                 ],
-                post: state.post && state.post.id === action.payload.id ? action.payload : state.post,
                 loading: false
             }
 

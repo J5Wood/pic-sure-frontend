@@ -31,16 +31,6 @@ export function addNewPost(formState, userId) {
     }
 }
 
-export function fetchPost(id) {
-    return dispatch => {
-        dispatch({ type: "BEGIN_FETCHING_POST"})
-        fetch(`http://localhost:3001/posts/${id}`)
-        .then(resp => resp.json())
-        .then(jsonResp => dispatch({ type: 'DISPLAY_POST', payload: jsonResp.data}))
-        .catch(error => dispatch({ type: "ERROR", payload: error.message}))
-    }
-}
-
 export function deletePost(postObj) {
     const configObj = {
         method: 'DELETE',

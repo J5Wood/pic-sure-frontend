@@ -47,7 +47,7 @@ class Post extends Component {
     renderDeleteVerification = () => {
         if (this.state.renderDeleteVerification === true) {
             return (
-                <h4>
+                <h4 className="delete-button">
                     <Badge variant='light'>Are you sure?</Badge><Button onClick={this.handleDeleteConfirmation} size='sm' variant='danger'>Yes</Button>
                 </h4>
             )
@@ -57,7 +57,9 @@ class Post extends Component {
     render() {
         if (this.state.postDeleted === true) {
             return (
-                <Redirect to="/home"/>
+                <h4 className="delete-button">
+                    <Redirect to="/home"/>
+                </h4>
             )
         }
         return (

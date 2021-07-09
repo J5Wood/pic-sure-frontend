@@ -108,7 +108,7 @@ body {background-color: #e4e9df;}
 .delete-post-button {
   position: absolute;
   right:    0;
-  bottom:   0;
+  top:   0;
 }
 
 .delete-confirmation {

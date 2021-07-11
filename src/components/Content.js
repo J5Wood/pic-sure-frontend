@@ -19,11 +19,12 @@ const renderHeart = props => {
 export const Content = props => {
     return (
         <div className="post-content" >
+            <br/>
             <li><b>{props.post.attributes.user}</b> - {props.post.attributes.content}</li>
+            <br/>
             <div className="likes" onClick={() => props.handleLike(props.post.id)}>
                 {renderHeart(props)}
             </div>
-            <br/>
         </div>
     )
 }

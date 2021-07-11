@@ -71,6 +71,7 @@ body {background-color: #e4e9df;}
 
 .post-content {
   color: aliceblue;
+  margin-bottom: 5px;
 }
 
 .margin-right {
@@ -78,8 +79,6 @@ body {background-color: #e4e9df;}
 }
 
 .post-card {
-  float: left;
-  margin: auto;
   min-width: 350px;
   max-width: 350px;
   min-height: min-content;
@@ -91,6 +90,9 @@ body {background-color: #e4e9df;}
   border-width: 4px;
   border-style: solid;
   position: relative;
+  height: 100%;
+  border-radius: 10px;
+  align-self: center;
 }
 
 .image {

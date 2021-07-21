@@ -116,3 +116,8 @@ body {background-color: #e4e9df;}
 .delete-confirmation {
   background-color: #ed5255;
 }
+
+.delete-comment-button {
+  position: relative;
+  float: left;
+}

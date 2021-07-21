@@ -38,3 +38,23 @@ export function addNewComment(comment) {
         .catch(error => dispatch({ type: "ERROR", payload: error.message}))
     }
 }
+
+export function deleteComment(commentId) {
+    const configObj = {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json"
+        },
+        body: JSON.stringify(commentId)
+    }
+    return dispatch => {
+        dispatch({type: "BEGIN_DELETEING_COMMENT"})
+        fetch(`http://localhost:3001/comments/${commentId}`, configObj)
+        .then(resp => resp.json())
+        .then(jsonResp =>{
+            dispatch({type: "DELETE_COMMENT", payload: jsonResp})
+        })
+        .catch(error => dispatch({ type: "ERROR", payload: error.message}))
+    }
+}

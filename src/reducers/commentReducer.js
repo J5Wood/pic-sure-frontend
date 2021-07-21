@@ -31,6 +31,19 @@ export default function commentReducer(
                 loading: false
             }
 
+        case "BEGIN_DELETING_COMMENT":
+            return {
+                ...state,
+                loading: true
+            }
+
+        case "DELETE_COMMENT":
+            return {
+                ...state,
+                comments: state.comments.filter(comment => comment.id !== action.payload.commentId),
+                loading: false
+            }
+
         default:
             return state
 

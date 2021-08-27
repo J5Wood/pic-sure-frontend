@@ -6,6 +6,16 @@ import LoginForm from './LoginForm'
 import { fetchLoggedInUser } from '../actions/UserActions'
 
 class Welcome extends Component {
+    
+    state = {
+        loginSignupToggle: true
+    }
+
+    handleLoginToggle = () => {
+        this.setState({
+            loginSignupToggle: !this.state.loginSignupToggle
+        })
+    }
 
     
     componentDidMount() {
@@ -13,19 +23,27 @@ class Welcome extends Component {
     }
 
     renderLoginForm = () => {
-        return (
-            <div className="d-flex flex-fill justify-content-center">
+        if(this.state.loginSignupToggle){
+            return (
                 <div className="login-signup-form">
-                <LoginForm />
+                    <br/>
+                    <LoginForm />
+                    <br/>
+                    <br/>
+                    <button className="form-button" onClick={this.handleLoginToggle}>Don't Have an Account? Sign Up Here!</button>
                 </div>
-                <div className="d-inline-flex align-items-center">
-                - OR -
-                </div> 
+            )
+        } else {
+            return (
                 <div className="login-signup-form">
-                <SignupForm />
+                    <br/>
+                    <SignupForm />
+                    <br/>
+                    <br/>
+                    <button className="form-button" onClick={this.handleLoginToggle}>Aready a User? Sign in Here!</button>
                 </div>
-            </div>
-        )
+            )
+        }
     }
 
     render() {
@@ -33,7 +51,7 @@ class Welcome extends Component {
             return <Redirect to="/home"/>
         }
         return (
-            <div>
+            <div className="login-div">
                 {this.renderLoginForm()}
             </div>
         )

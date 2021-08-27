@@ -20,11 +20,35 @@ body {background-color: #e4e9df;}
 
 .form-button:hover {
   background-color: #0b0f08;
-  color: #546329;
+  color: rgb(212, 255, 199);
 }
 
 .login-signup-form{
+  position: relative;
   margin: 28px;
+  background-color: #a9bea6;
+  width: 50%;
+  height: 500px;
+  border: black;
+  border-style: solid;
+  border-radius: 1.4%;
+  border-width: 2px;
+  box-shadow: 9px 9px 10px rgba(0, 0, 0, 0.4);
+  z-index: 1;
+}
+
+.login-signup-form::before{
+  position: absolute;
+  content: "";
+  inset: 0 0 0 0;
+  background: linear-gradient(20deg, rgba(255,255,255,.8) 1%, rgba(169, 190, 166,.7) 87%);
+  transition: opacity 0.5s linear;
+  z-index: -1;
+  opacity: 0;
+}
+
+.login-signup-form:hover::before{
+  opacity: 1;
 }
 
 #user-badge {
@@ -120,4 +144,10 @@ body {background-color: #e4e9df;}
 .delete-comment-button {
   position: relative;
   float: left;
+}
+
+.login-div{
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
